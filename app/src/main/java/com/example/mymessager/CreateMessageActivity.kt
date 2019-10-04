@@ -18,12 +18,15 @@ class CreateMessageActivity : AppCompatActivity() {
 
         /* val intent = Intent(this, ReceiveMessageActivity::class.java)//явний интент
          intent.putExtra(EXTRA_MESSAGE ,message.text.toString())*/ //ерез переменную сс спользую ехстра месаж
-         val intent = Intent(Intent.ACTION_SEND)//не явный интент для отправки сообщения
+//         val intent = Intent(Intent.ACTION_SEND)//не явный интент для отправки сообщения
+            var intent = Intent(Intent.ACTION_SEND)
          intent.setType("text/plain")
          intent.putExtra(Intent.EXTRA_TEXT,message.text.toString())
             val putExtra = intent.putExtra(Intent.EXTRA_SUBJECT, "TEst ne yvniy intent")
-            val chosenIntent = Intent.createChooser(intent,"CHOISER")
-         startActivity(chosenIntent)
+            intent = Intent.createChooser(intent,"CHOISER@")
+            startActivity(intent)
+         /*   val chosenIntent = Intent.createChooser(intent,"CHOISER")
+         startActivity(chosenIntent)*/
      }   //119
     }
     /*companion object{
